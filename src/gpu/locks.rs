@@ -160,7 +160,7 @@ macro_rules! locked_kernel {
 }
 
 locked_kernel!(LockedFFTKernel, FFTKernel, create_fft_kernel, "FFT");
-info!("locked_kernel begin 2");
+// info!("locked_kernel begin 2");
 locked_kernel!(
     LockedMultiexpKernel,
     MultiexpKernel,
