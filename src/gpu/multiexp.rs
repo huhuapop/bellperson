@@ -15,7 +15,7 @@ use std::sync::Arc;
 
 const MAX_WINDOW_SIZE: usize = 10;
 const LOCAL_WORK_SIZE: usize = 256;
-const MEMORY_PADDING: f64 = 0.2f64; // Let 20% of GPU memory be free
+const MEMORY_PADDING: f64 = 0.05f64; // Let 20% of GPU memory be free
 
 pub fn get_cpu_utilization() -> f64 {
     use std::env;
