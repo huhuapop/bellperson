@@ -94,7 +94,6 @@ macro_rules! locked_kernel {
             priority: bool,
             kernel: Option<$kern<E>>,
         }
-
         impl<E> $class<E>
         where
             E: Engine,
@@ -108,6 +107,7 @@ macro_rules! locked_kernel {
             }
 
             fn init(&mut self) {
+                info!("GPU begin init!");
                 if self.kernel.is_none() {
                     PriorityLock::wait(self.priority);
                     info!("GPU is available for {}!", $name);
@@ -133,7 +133,7 @@ macro_rules! locked_kernel {
                 }
 
                 self.init();
-
+                info!("init success");
                 loop {
                     if let Some(ref mut k) = self.kernel {
                         match f(k) {
