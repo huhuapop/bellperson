@@ -401,6 +401,7 @@ where
     match gpu::MultiexpKernel::<E>::create(priority) {
         Ok(k) => {
             info!("GPU Multiexp kernel instantiated!");
+            info!("GPU Multiexp kernel instantiated update 2!");
             Some(k)
         }
         Err(e) => {
