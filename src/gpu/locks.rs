@@ -85,7 +85,6 @@ use crate::multiexp::create_multiexp_kernel;
 
 macro_rules! locked_kernel {
     ($class:ident, $kern:ident, $func:ident, $name:expr) => {
-        info!("locked_kernel begin");
         #[allow(clippy::upper_case_acronyms)]
         pub struct $class<E>
         where
@@ -117,6 +116,7 @@ macro_rules! locked_kernel {
             }
 
             fn free(&mut self) {
+                info!("GPU acquired by a high priority process begin");
                 if let Some(_kernel) = self.kernel.take() {
                     warn!(
                         "GPU acquired by a high priority process! Freeing up {} kernels...",
@@ -160,6 +160,7 @@ macro_rules! locked_kernel {
 }
 
 locked_kernel!(LockedFFTKernel, FFTKernel, create_fft_kernel, "FFT");
+info!("locked_kernel begin 2");
 locked_kernel!(
     LockedMultiexpKernel,
     MultiexpKernel,
