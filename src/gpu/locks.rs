@@ -84,8 +84,8 @@ use crate::domain::create_fft_kernel;
 use crate::multiexp::create_multiexp_kernel;
 
 macro_rules! locked_kernel {
-    info!("locked_kernel begin");
     ($class:ident, $kern:ident, $func:ident, $name:expr) => {
+        info!("locked_kernel begin");
         #[allow(clippy::upper_case_acronyms)]
         pub struct $class<E>
         where
